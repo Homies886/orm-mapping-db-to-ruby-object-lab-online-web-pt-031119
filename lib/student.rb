@@ -49,7 +49,9 @@ class Student
 
     sql = "select * from students where grade = 10 order by students.name asc limit 1;"
 
-    DB[:conn].execute(sql)
+    DB[:conn].execute(sql, name).map do |row|
+      self.new_from_db(row)
+    end.first  
   end
 
   def save
