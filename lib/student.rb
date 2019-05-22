@@ -47,7 +47,7 @@ class Student
 
   def self.first_student_in_grade_10
 
-    sql = "select * from students where grade = 10 order by(name) asc limit 1;"
+    sql = "select * from students where grade = 10 order by students.name asc limit 1;"
 
     DB[:conn].execute(sql)
   end
