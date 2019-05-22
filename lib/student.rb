@@ -35,7 +35,13 @@ class Student
     sql = "select * from students where grade < 12;"
 
     DB[:conn].execute(sql)
-  end    
+  end
+
+  def self.first_X_students_in_grade_10(arg)
+    sql = "select * from students where grade = 10 limit #{arg};"
+
+    DB[:conn].execute(sql)
+  end  
 
   def save
     sql = <<-SQL
